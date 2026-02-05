@@ -170,6 +170,7 @@ View in Stripe: https://dashboard.stripe.com/payments/${order.stripePaymentId}
       // Use your verified domain. Before domain verification, use: 'onboarding@resend.dev'
       from: process.env.RESEND_FROM_EMAIL || 'Red Night Orders <orders@rednight.com.au>',
       to: ORDER_NOTIFICATION_EMAILS,
+      replyTo: 'bobbyleo@me.com',
       subject: `New Order: ${order.customerName} - $${order.total.toFixed(2)} AUD`,
       html,
       text: plainText,
