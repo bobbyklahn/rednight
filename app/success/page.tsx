@@ -70,8 +70,8 @@ export default function SuccessPage() {
 
           <p className="text-sm text-gray-500">
             Questions? Contact us at{' '}
-            <a href="mailto:hello@thestillco.com.au" className="text-gold-500 hover:underline">
-              hello@thestillco.com.au
+            <a href="mailto:orders@rednight.com.au" className="text-gold-500 hover:underline">
+              orders@rednight.com.au
             </a>
           </p>
         </div>
