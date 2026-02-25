@@ -1,0 +1,30 @@
+{
+  "permissions": {
+    "allow": [
+      "Read(//Users/bobbyliu/Library/**)",
+      "Bash(cd:*)",
+      "Read(//Users/bobbyliu/specs/002-red-night-e/**)",
+      "Bash(npx create-next-app:*)",
+      "Bash(ls:*)",
+      "Bash(npm run dev:*)",
+      "Bash(npm install)",
+      "Bash(claude mcp add:*)",
+      "WebFetch(domain:developers.chrome.com)",
+      "WebSearch",
+      "WebFetch(domain:developer.chrome.com)",
+      "Bash(claude mcp:*)",
+      "Bash(npx:*)",
+      "Bash(node:*)",
+      "Bash(npm install:*)",
+      "Bash(npm run lint)",
+      "Bash(npm run build:*)",
+      "Bash(git fetch:*)",
+      "Bash(git add:*)",
+      "Bash(git commit -m \"$\\(cat <<''EOF''\nAdd order notification emails via Stripe webhook\n\n- Add /api/webhook endpoint to receive Stripe checkout.session.completed events\n- Add email service using Resend to send order notifications\n- Notifications sent to bobbyleo@me.com and hhinrichsen@gmail.com\n- Email includes customer details, shipping address, items ordered, and totals\n\nCo-Authored-By: Claude Opus 4.5 <noreply@anthropic.com>\nEOF\n\\)\")",
+      "Bash(git push:*)",
+      "Bash(git commit -m \"$\\(cat <<''EOF''\nAdd reply-to header for order notification emails\n\nReplies to order notifications will go to bobbyleo@me.com\n\nCo-Authored-By: Claude Opus 4.5 <noreply@anthropic.com>\nEOF\n\\)\")"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}

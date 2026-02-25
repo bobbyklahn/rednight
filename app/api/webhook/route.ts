@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { stripe } from '@/lib/stripe';
-import { sendOrderNotificationEmail } from '@/lib/email';
+import { sendOrderNotificationEmail, sendCustomerConfirmationEmail } from '@/lib/email';
 import Stripe from 'stripe';
 
 // Disable body parsing - Stripe needs raw body for signature verification
@@ -124,8 +124,11 @@ async function handleCheckoutCompleted(session: Stripe.Checkout.Session) {
     createdAt: new Date(fullSession.created * 1000),
   };
 
-  // Send notification email
-  await sendOrderNotificationEmail(orderDetails);
+  // Send admin notification + customer confirmation in parallel
+  await Promise.all([
+    sendOrderNotificationEmail(orderDetails),
+    sendCustomerConfirmationEmail(orderDetails),
+  ]);
 
-  console.log('Order notification sent for:', fullSession.id);
+  console.log('Order emails sent for:', fullSession.id);
 }
