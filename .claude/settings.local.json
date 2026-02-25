@@ -22,7 +22,8 @@
       "Bash(git add:*)",
       "Bash(git commit -m \"$\\(cat <<''EOF''\nAdd order notification emails via Stripe webhook\n\n- Add /api/webhook endpoint to receive Stripe checkout.session.completed events\n- Add email service using Resend to send order notifications\n- Notifications sent to bobbyleo@me.com and hhinrichsen@gmail.com\n- Email includes customer details, shipping address, items ordered, and totals\n\nCo-Authored-By: Claude Opus 4.5 <noreply@anthropic.com>\nEOF\n\\)\")",
       "Bash(git push:*)",
-      "Bash(git commit -m \"$\\(cat <<''EOF''\nAdd reply-to header for order notification emails\n\nReplies to order notifications will go to bobbyleo@me.com\n\nCo-Authored-By: Claude Opus 4.5 <noreply@anthropic.com>\nEOF\n\\)\")"
+      "Bash(git commit -m \"$\\(cat <<''EOF''\nAdd reply-to header for order notification emails\n\nReplies to order notifications will go to bobbyleo@me.com\n\nCo-Authored-By: Claude Opus 4.5 <noreply@anthropic.com>\nEOF\n\\)\")",
+      "Bash(git commit:*)"
     ],
     "deny": [],
     "ask": []
