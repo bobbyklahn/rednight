@@ -66,8 +66,9 @@ async function handleCheckoutCompleted(session: Stripe.Checkout.Session) {
   };
 
   const customerDetails = fullSession.customer_details;
-  // shipping_details is available on checkout sessions with shipping address collection
-  const shippingDetails = fullSession.shipping_details;
+  // Prefer shipping_details from the webhook event object (always populated on completed sessions)
+  // fullSession.shipping_details may be absent when not explicitly expanded
+  const shippingDetails = session.shipping_details || fullSession.shipping_details;
   const lineItems = fullSession.line_items?.data || [];
 
   if (!customerDetails) {
