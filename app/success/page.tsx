@@ -58,7 +58,7 @@ export default function SuccessPage() {
             </li>
             <li className="flex items-start gap-2">
               <span className="text-gold-500 mt-1">✓</span>
-              <span>Delivery typically takes 3-5 business days</span>
+              <span>Delivery typically takes 3-8 business days</span>
             </li>
           </ul>
         </div>
