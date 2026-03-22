@@ -57,18 +57,14 @@ async function handleCheckoutCompleted(session: Stripe.Checkout.Session) {
 
   // Retrieve the full session with line items and customer details
   const fullSession = await stripe.checkout.sessions.retrieve(session.id, {
-    expand: ['line_items', 'line_items.data.price.product', 'shipping_cost.shipping_rate'],
-  }) as Stripe.Checkout.Session & {
-    shipping_details?: {
-      name?: string;
-      address?: Stripe.Address;
-    };
-  };
+    expand: ['line_items', 'line_items.data.price.product', 'shipping_cost.shipping_rate', 'collected_information.shipping_details'],
+  });
 
   const customerDetails = fullSession.customer_details;
-  // Prefer shipping_details from the webhook event object (always populated on completed sessions)
-  // fullSession.shipping_details may be absent when not explicitly expanded
-  const shippingDetails = session.shipping_details || fullSession.shipping_details;
+  // Stripe SDK v19+ moves shipping_details to collected_information.shipping_details
+  const shippingDetails =
+    fullSession.collected_information?.shipping_details ||
+    session.collected_information?.shipping_details;
   const lineItems = fullSession.line_items?.data || [];
 
   if (!customerDetails) {
